@@ -42,7 +42,6 @@ export default new Vuex.Store({
         })
         .catch(error => console.error(error));
       liked.splice(liked.indexOf(id), 1);
-      console.log(liked);
       localStorage.setItem("votes", JSON.stringify(liked));
       commit("setLiked", liked);
     }

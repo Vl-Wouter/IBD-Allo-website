@@ -49,7 +49,6 @@ export default {
     validateForm(data) {
       for (let pair of data.entries()) {
         const [key, value] = pair;
-        console.log(key, value);
         if (key === "check") {
           const hasValue = value ? true : false;
           if (hasValue) return false;
