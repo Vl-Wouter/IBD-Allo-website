@@ -22,12 +22,9 @@ export default new Vuex.Store({
     addToLiked({ state, commit }, postData) {
       let { id, votes } = postData;
       const liked = state.liked;
-      submissionsCollection
-        .doc(id)
-        .update({
-          votes: ++votes
-        })
-        .catch(error => console.error(error));
+      submissionsCollection.doc(id).update({
+        votes: ++votes
+      });
       liked.push(id);
       localStorage.setItem("votes", JSON.stringify(liked));
       commit("setLiked", liked);
@@ -35,12 +32,9 @@ export default new Vuex.Store({
     removeFromLiked({ state, commit }, postData) {
       let { id, votes } = postData;
       const liked = state.liked;
-      submissionsCollection
-        .doc(id)
-        .update({
-          votes: --votes
-        })
-        .catch(error => console.error(error));
+      submissionsCollection.doc(id).update({
+        votes: --votes
+      });
       liked.splice(liked.indexOf(id), 1);
       localStorage.setItem("votes", JSON.stringify(liked));
       commit("setLiked", liked);

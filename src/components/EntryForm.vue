@@ -87,7 +87,13 @@ export default {
         .then(() => {
           this.$router.push({ name: "home" });
         })
-        .catch(error => console.error(error));
+        .catch(
+          error =>
+            (this.errors = {
+              level: "error",
+              message: error.message
+            })
+        );
     }
   }
 };
